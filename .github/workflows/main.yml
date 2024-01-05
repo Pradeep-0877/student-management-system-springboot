@@ -1,7 +1,7 @@
 name: github-actions-1
 on: 
   push: 
-    branches: [main1]
+    branches: [main]
 jobs: 
   sonar-scan:
     
