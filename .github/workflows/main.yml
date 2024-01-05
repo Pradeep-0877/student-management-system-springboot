@@ -1,7 +1,7 @@
 name: github-actions-1
 on: 
   push: 
-    branches: [master]
+    branches: [main]
 jobs: 
    Build: 
      steps:
