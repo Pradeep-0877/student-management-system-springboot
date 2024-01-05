@@ -13,3 +13,8 @@ jobs:
          distribution: 'temurin'
       - name: Run the Maven verify phase
         run: mvn package
+      - name: publishing artifact
+        uses: actions/upload-artifact@v2
+        with: 
+          name: student_Management_system
+          path: target/*.jar
