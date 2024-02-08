@@ -47,7 +47,7 @@ jobs:
              id: deploy
              uses: google-github-actions/deploy-cloudrun@v0.4.0
              with:
-               service: sms-app
+               service: sma-app
                image: "pradeep0877/student-management-app:${{github.run_number}}"
                region: us-east1
           - name: Show Output
