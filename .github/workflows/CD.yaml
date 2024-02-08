@@ -17,7 +17,7 @@ jobs:
               with: 
                 repository: ${{ github.repository }}
                 tag: "v${{github.event.inputs.Release_Version}}"
-                fileName: "app-${{github.event.inputs.R}}.zip"
+                fileName: "app-${{github.event.inputs.Release_Version}}.zip"
                 extract: false
             - run: |
                  unzip "app-${{github.event.inputs.Release_Version}}.zip"
