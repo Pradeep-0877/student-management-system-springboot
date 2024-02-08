@@ -27,10 +27,29 @@ jobs:
               uses: mr-smithers-excellent/docker-build-push@v5
               with:
                    image: pradeep0877/student-management-app
-                   tags: latest
+                   tags: ${{github.run_number}}
                    registry: docker.io
                    dockerfile: Dockerfile
                    username: ${{ secrets.DOCKER_USERNAME }}
                    password: ${{ secrets.DOCKER_PASSWORD }}
+    Deploy_to_Cloud_Rum: 
+       needs: Build_images
+       runs-on: ubuntu-latest
+       steps: 
+          - name: Setup Cloud cli
+            uses: google-github-actions/${{github.run_number}}setup-gcloud@v0.2.0
+            with:
+             project_id: mindful-backup-412805
+             service_account_key: ${{ secrets.GCP_SA_KEY }}
+             export_default_credentials: true
+          -  name: Deploy to Cloud Run
+             id: deploy
+             uses: google-github-actions/deploy-cloudrun@v0.4.0
+             with:
+               service: sms-app
+               image: "pradeep0877/student-management-app:${{github.run_number}}"
+               region: us-east1
+          - name: Show Output
+            run: echo ${{ steps.deploy.outputs.url }}
             
       
