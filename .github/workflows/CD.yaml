@@ -21,6 +21,8 @@ jobs:
                 extract: false
             - run: |
                  unzip "app-${{github.event.inputs.Release_Version}}.zip"
+            - name: checkout code
+              uses: actions/checkout@v3
             - name: Build & push Docker image
               uses: mr-smithers-excellent/docker-build-push@v5
               with:
