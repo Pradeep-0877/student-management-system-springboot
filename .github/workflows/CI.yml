@@ -1,4 +1,4 @@
-name: github-actions-1
+name: build
 on: workflow_dispatch
 jobs: 
   build:
@@ -31,7 +31,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Pradeep-0877_student-management-system-springboot -DskipTests -Dsonar.qualitygate.wait=true
       - name: archiving the artifacts
-        uses: actions/upload-artifacts@v3
+        uses: actions/upload-artifact@v3
         with: 
           name: "sms-app"
   
