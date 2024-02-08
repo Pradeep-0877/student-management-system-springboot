@@ -9,7 +9,7 @@ on:
                 required: true
 jobs: 
     Build_images:
-        environment: production
+        environment: ${{github.event.inputs.environment}}
         runs-on: ubuntu-latest
         steps: 
             - name: downloading release assets... 
@@ -34,6 +34,7 @@ jobs:
                    password: ${{ secrets.DOCKER_PASSWORD }}
     Deploy_to_Cloud_Rum: 
        needs: Build_images
+       environment: ${{github.event.inputs.environment}}
        runs-on: ubuntu-latest
        steps: 
           - name: Setup Cloud cli
