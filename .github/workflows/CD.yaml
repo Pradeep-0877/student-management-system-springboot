@@ -48,7 +48,7 @@ jobs:
              uses: google-github-actions/deploy-cloudrun@v0.4.0
              with:
                service: sma-app
-               image: "pradeep0877/student-management-app:${{github.run_number}}"
+               image: "pradeep0877/student-management-app:89"
                region: us-east1
           - name: Show Output
             run: echo ${{ steps.deploy.outputs.url }}
