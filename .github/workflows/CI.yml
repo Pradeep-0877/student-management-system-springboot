@@ -1,7 +1,5 @@
 name: github-actions-1
-on: 
-  push: 
-    branches: [main]
+on: workflow_dispatch
 jobs: 
   build:
     
@@ -54,6 +52,9 @@ jobs:
               filename: 'app.zip'
         - run: |
             ls
+            unzip "app.zip"
+            ls
+            pwd
         # - name: creating release...
         #   id: create_release
         #   uses: actions/create-release@v1
