@@ -54,7 +54,7 @@ jobs:
               filename: 'app.zip'
         - run: |
             ls
-            unzip "app.zip"
+            # unzip "app.zip"
             ls
             pwd
         # - name: creating release...
