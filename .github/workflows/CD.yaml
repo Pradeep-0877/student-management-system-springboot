@@ -19,11 +19,10 @@ jobs:
                 tag: "v${{github.event.inputs.Release_Version}}"
                 fileName: "app-${{github.event.inputs.Release_Version}}.zip"
                 extract: false
-            - run: |
-                 unzip "app-${{github.event.inputs.Release_Version}}.zip"
             - name: checkout code
               uses: actions/checkout@v3
             - run: |
+                 unzip "app-${{github.event.inputs.Release_Version}}.zip"
                  ls
                  pwd
             - name: Build & push Docker image
