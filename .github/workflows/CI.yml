@@ -35,9 +35,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Pradeep-0877_student-management-system-springboot -DskipTests -Dsonar.qualitygate.wait=true
-        if: steps.sonar.outcome == "Failure"
+        if: steps.sonar.outcome == "failure"
       - run: echo "- sonar :***Fail***" >> $GITHUB_STEP_SUMMARY
-        if: steps.sonar.outcome == "Failure"
+        if: steps.sonar.outcome == "success"
       - run: echo "SONAR :***PASS***" >> $GITHUB_STEP_SUMMARY
         
            
