@@ -40,7 +40,7 @@ jobs:
         run: echo "- sonar :***Fail***" >> $GITHUB_STEP_SUMMARY
       - name: summary
         if: steps.sonar.outcome == 'success'
-        run: echo "SONAR :***PASS***" >> $GITHUB_STEP_SUMMARY
+        run: echo "- SONAR :***PASS***" >> $GITHUB_STEP_SUMMARY
         
            
       - name: archiving the artifacts
